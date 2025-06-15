@@ -72,6 +72,9 @@ gui:
   # When mouse events are captured, it's a little harder to select text: e.g. requiring you to hold the option key when on macOS.
   mouseEvents: true
 
+  # If true, do not show a warning when amending a commit.
+  skipAmendWarning: false
+
   # If true, do not show a warning when discarding changes in the staging view.
   skipDiscardChangeWarning: false
 
@@ -245,7 +248,7 @@ gui:
   screenMode: normal
 
   # Window border style.
-  # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
+  # One of 'rounded' (default) | 'single' | 'double' | 'hidden' | 'bold'
   border: rounded
 
   # If true, show a seriously epic explosion animation when nuking the working tree.
