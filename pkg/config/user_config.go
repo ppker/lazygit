@@ -74,6 +74,8 @@ type GuiConfig struct {
 	// If true, capture mouse events.
 	// When mouse events are captured, it's a little harder to select text: e.g. requiring you to hold the option key when on macOS.
 	MouseEvents bool `yaml:"mouseEvents"`
+	// If true, do not show a warning when amending a commit.
+	SkipAmendWarning bool `yaml:"skipAmendWarning"`
 	// If true, do not show a warning when discarding changes in the staging view.
 	SkipDiscardChangeWarning bool `yaml:"skipDiscardChangeWarning"`
 	// If true, do not show warning when applying/popping the stash
@@ -164,8 +166,8 @@ type GuiConfig struct {
 	// One of: 'normal' (default) | 'half' | 'full'
 	ScreenMode string `yaml:"screenMode" jsonschema:"enum=normal,enum=half,enum=full"`
 	// Window border style.
-	// One of 'rounded' (default) | 'single' | 'double' | 'hidden'
-	Border string `yaml:"border" jsonschema:"enum=single,enum=double,enum=rounded,enum=hidden"`
+	// One of 'rounded' (default) | 'single' | 'double' | 'hidden' | 'bold'
+	Border string `yaml:"border" jsonschema:"enum=single,enum=double,enum=rounded,enum=hidden,enum=bold"`
 	// If true, show a seriously epic explosion animation when nuking the working tree.
 	AnimateExplosion bool `yaml:"animateExplosion"`
 	// Whether to stack UI components on top of each other.
@@ -734,6 +736,7 @@ func GetDefaultConfig() *UserConfig {
 			ScrollOffBehavior:        "margin",
 			TabWidth:                 4,
 			MouseEvents:              true,
+			SkipAmendWarning:         false,
 			SkipDiscardChangeWarning: false,
 			SkipStashWarning:         false,
 			SidePanelWidth:           0.3333,
